@@ -11,12 +11,22 @@
 	<packaging>jar</packaging>
 	<name>Spring Boot Daemon :: Sample</name>
 
+	<properties>
+		<dist.dir>${project.build.directory}/dist</dist.dir>
+		<dist.project.id>${project.artifactId}</dist.project.id>
+		<dist.project.name>Sample Spring Boot App</dist.project.name>
+		<dist.project.description>
+			Demonstrate how to integrate a Spring Boot app as a Windows Service
+		</dist.project.description>
+		<dist.start.class>com.example.SampleApplication</dist.start.class>
+		<dist.jmx.port>50201</dist.jmx.port>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>spring-boot-daemon-integration</artifactId>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -27,17 +37,76 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sun.winsw</groupId>
+			<artifactId>winsw</artifactId>
+			<classifier>bin</classifier>
+			<type>exe</type>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.sun.winsw</groupId>
+									<artifactId>winsw</artifactId>
+									<classifier>bin</classifier>
+									<type>exe</type>
+									<destFileName>service.exe</destFileName>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${dist.dir}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${dist.dir}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/dist</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.5.5</version>
 				<configuration>
 					<descriptors>
-						<descriptor>src/main/assembly/dist.xml</descriptor>
+						<descriptor>src/main/assembly/unix.xml</descriptor>
+						<descriptor>src/main/assembly/windows.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>

@@ -1,0 +1,9 @@
+# Spring Boot daemon
+
+This project is an attempt to integration a Spring Boot application as a Windows service.
+
+
+## Current issues
+
+* Wildcard classpath http://apache-commons.680414.n4.nabble.com/daemon-Procrun-Prunsrv-classpath-wildcard-not-working-on-AMD-64-td3810875.html[does not seem to be supported]
+* On Windows7 64x the `amd64` (?!) variant of `prunsrv.exe` has to be used

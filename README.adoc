@@ -1,9 +1,41 @@
 # Spring Boot daemon
 
-This project is an attempt to integration a Spring Boot application as a Windows service.
+This project demonstrates how a Spring Boot application can be managed as a service.
 
+## Building
 
-## Current issues
+You need Maven to build the project and a simple `mvn package` at the root will do.
 
-* Wildcard classpath http://apache-commons.680414.n4.nabble.com/daemon-Procrun-Prunsrv-classpath-wildcard-not-working-on-AMD-64-td3810875.html[does not seem to be supported]
-* On Windows7 64x the `amd64` (?!) variant of `prunsrv.exe` has to be used
+## Unix
+
+A `unix` distribution is generated automatically and uses `jsvc`. It is added for demonstration purpose only
+as Spring Boot `1.3.x` has http://docs.spring.io/spring-boot/docs/1.3.0.M5/reference/htmlsingle/#deployment-service[better support for this]
+
+## Windows
+
+The `windows` distribution uses https://github.com/kohsuke/winsw[`winsw`].
+
+WARNING: You need to install the `.NET` framework on the target machine first.
+
+To install the sample application as a service, extract the distribution somewhere and open a shell with
+administrative rights in that directory. Then invoke the following command
+
+[source,bash]
+----
+$ spring-boot-daemon-sample.exe install
+----
+
+[NOTE]
+====
+`spring-boot-daemon-sample` is the identifier of the service. You can control that via Maven properties
+in the `spring-boot-daemon-sample` project.
+====
+
+Once the service has been install, you can start it the usual way, that is:
+
+[source,bash]
+----
+$ net start spring-boot-daemon-sample
+----
+
+The logs are available in the `logs` directory of the distribution.

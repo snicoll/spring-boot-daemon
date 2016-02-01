@@ -1,17 +1,17 @@
 #!/bin/bash
 
 JSVC_EXECUTABLE="$( which jsvc )"
-JSVC_PID_FILE=/tmp/${dist.project.id}.pid
+JSVC_PID_FILE=/tmp/@dist.project.id@.pid
 
 if [ -z "$JSVC_USER" ]; then
 	JSVC_USER="$USER"
 fi
 
-DIST_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
+DIST_DIR="$( cd "$( dirname "@BASH_SOURCE[0]@" )/../" && pwd )"
 LIB_DIR="$DIST_DIR/lib"
 CONF_DIR="$DIST_DIR/conf"
 
-SPRING_BOOT_APP=${dist.start.class}
+SPRING_BOOT_APP=@dist.start.class@
 
 JAVA_EXEC="$( which java )"
 JAVA_CLASSPATH="$CONF_DIR:$LIB_DIR/*"

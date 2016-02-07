@@ -26,7 +26,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.util.ClassUtils;
 
 /**
- * Basic {@link Daemon} implementation for a Spring Boot app.
+ * Basic {@link Daemon} implementation for a Spring Boot app. Only for demonstration
+ * purposes as Spring Boot 1.3 has a much better support for this.
  *
  * @author Stephane Nicoll
  */
@@ -39,8 +40,8 @@ public class SpringBootDaemon implements Daemon {
 	public void init(DaemonContext context) throws Exception {
 		System.out.println("Daemon initialized with arguments [" +
 				Arrays.toString(context.getArguments()) + "]");
-		// TODO
-		this.springBootApp = ClassUtils.resolveClassName(context.getArguments()[0], null);
+		this.springBootApp = ClassUtils.resolveClassName(context.getArguments()[0],
+				SpringBootDaemon.class.getClassLoader());
 	}
 
 	public void start() throws Exception {

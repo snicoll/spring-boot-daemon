@@ -15,7 +15,7 @@ SPRING_BOOT_APP=@dist.start.class@
 
 JAVA_EXEC="$( which java )"
 JAVA_CLASSPATH="$CONF_DIR:$LIB_DIR/*"
-JAVA_MAIN_CLASS="com.example.boot.daemon.SpringBootDaemon"
+JAVA_MAIN_CLASS="net.nicoll.boot.daemon.SpringBootDaemon"
 JAVA_ARGUMENTS=$SPRING_BOOT_APP
 
 

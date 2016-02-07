@@ -3,7 +3,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.example</groupId>
+		<groupId>net.nicoll</groupId>
 		<artifactId>spring-boot-daemon</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -18,13 +18,13 @@
 		<dist.project.description>
 			Demonstrate how to integrate a Spring Boot app as a Windows Service
 		</dist.project.description>
-		<dist.start.class>com.example.SampleApplication</dist.start.class>
+		<dist.start.class>net.nicoll.SampleApplication</dist.start.class>
 		<dist.jmx.port>50201</dist.jmx.port>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.example</groupId>
+			<groupId>net.nicoll</groupId>
 			<artifactId>spring-boot-daemon-integration</artifactId>
 		</dependency>
 

@@ -1,4 +1,4 @@
-package com.example.boot.daemon;
+package net.nicoll.boot.daemon;
 
 /**
  * Stop a Spring Boot application as a service.

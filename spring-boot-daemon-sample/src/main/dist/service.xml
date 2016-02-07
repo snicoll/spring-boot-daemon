@@ -13,12 +13,12 @@
 	<startargument>-Dcom.sun.management.jmxremote.ssl=false </startargument>
 	<startargument>-cp</startargument>
 	<startargument>lib/*</startargument>
-	<startargument>com.example.boot.daemon.StartSpringBootService</startargument>
+	<startargument>net.nicoll.boot.daemon.StartSpringBootService</startargument>
 	<startargument>@dist.start.class@</startargument>
 
 	<stopexecutable>java</stopexecutable>
 	<stopargument>-cp</stopargument>
 	<stopargument>lib/*</stopargument>
-	<stopargument>com.example.boot.daemon.StopSpringBootService</stopargument>
+	<stopargument>net.nicoll.boot.daemon.StopSpringBootService</stopargument>
 	<stopargument>@dist.jmx.port@</stopargument>
 </service>

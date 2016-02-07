@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.boot.daemon;
+package net.nicoll.boot.daemon;
 
 import java.io.IOException;
 import javax.management.AttributeNotFoundException;

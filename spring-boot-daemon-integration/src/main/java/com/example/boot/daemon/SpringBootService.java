@@ -17,17 +17,16 @@
 package com.example.boot.daemon;
 
 import java.io.IOException;
+
 import javax.management.InstanceNotFoundException;
 import javax.management.MBeanServerConnection;
 import javax.management.remote.JMXConnector;
-
-import org.apache.commons.daemon.Daemon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.ClassUtils;
 
 /**
- * Basic {@link Daemon} implementation for a Spring Boot app.
+ * Basic daemon implementation for a Spring Boot app.
  *
  * @author Stephane Nicoll
  */

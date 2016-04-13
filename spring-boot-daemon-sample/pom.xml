@@ -124,6 +124,7 @@
                 </executions>
                 <configuration>
                     <mainClass>${dist.start.class}</mainClass>
+                    <layout>ZIP</layout>
                 </configuration>
             </plugin>
         </plugins>

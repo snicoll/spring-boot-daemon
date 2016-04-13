@@ -10,15 +10,15 @@
 	<startargument>-Dspring.application.admin.enabled=true</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.port=@dist.jmx.port@</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
-	<startargument>-Dcom.sun.management.jmxremote.ssl=false </startargument>
-	<startargument>-cp</startargument>
-	<startargument>lib/*</startargument>
-	<startargument>net.nicoll.boot.daemon.StartSpringBootService</startargument>
+	<startargument>-Dcom.sun.management.jmxremote.ssl=false</startargument>
+	<startargument>-jar</startargument>
+	<startargument>-Dloader.main=net.nicoll.boot.daemon.StartSpringBootService</startargument>
+	<startargument>lib\@dist.project.id@-@dist.project.version@.jar</startargument>
 	<startargument>@dist.start.class@</startargument>
 
 	<stopexecutable>java</stopexecutable>
-	<stopargument>-cp</stopargument>
-	<stopargument>lib/*</stopargument>
-	<stopargument>net.nicoll.boot.daemon.StopSpringBootService</stopargument>
+	<stopargument>-jar</stopargument>
+	<stopargument>-Dloader.main=net.nicoll.boot.daemon.StopSpringBootService</stopargument>
+	<stopargument>lib\@dist.project.id@-@dist.project.version@.jar</stopargument>
 	<stopargument>@dist.jmx.port@</stopargument>
 </service>

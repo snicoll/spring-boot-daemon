@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
     <name>Spring Boot Daemon</name>
     <description>
-        Demonstrate how to use Apache Commons Daemon with Spring Boot
+        Use Apache Commons Daemon and WinSW with Spring Boot
     </description>
 
     <properties>

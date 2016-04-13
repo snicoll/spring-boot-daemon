@@ -48,7 +48,8 @@ To enable running your own Spring Boot applications as a Windows Service:
 1. add `net.kemitix:spring-boot-daemon-integration` as a dependency
 2. copy, unaltered, the `assembly` and `dist` directories from `spring-boot-daemon-sample/src/main` into your own application
 sources
-3. add the `project/build/plugins` section from `spring-boot-daemon-sample/pom.xml` to your own `pom.xml`
+3. add the `project/build/plugins` section from `spring-boot-daemon-sample/pom.xml` to your own `pom.xml`, excluded the
+`spring-boot-maven-plugin` if not needed
 4. add the following properties to your `pom.xml`, updating the values to suit
 
 [source,xml]

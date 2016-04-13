@@ -3,12 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.3.RELEASE</version>
-        <relativePath/>
+        <groupId>net.kemitix</groupId>
+        <artifactId>kemitix-spring-parent</artifactId>
+        <version>1.11.0</version>
     </parent>
-    <groupId>net.kemitix</groupId>
     <artifactId>spring-boot-daemon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>

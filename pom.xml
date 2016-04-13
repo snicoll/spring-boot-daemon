@@ -8,7 +8,7 @@
         <version>1.3.2.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>net.nicoll</groupId>
+    <groupId>net.kemitix</groupId>
     <artifactId>spring-boot-daemon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -30,7 +30,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>net.nicoll</groupId>
+                <groupId>net.kemitix</groupId>
                 <artifactId>spring-boot-daemon-integration</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>

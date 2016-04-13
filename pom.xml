@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.2.RELEASE</version>
-		<relativePath/>
-	</parent>
-	<groupId>net.nicoll</groupId>
-	<artifactId>spring-boot-daemon</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Spring Boot Daemon</name>
-	<description>
-		Demonstrate how to use Apache Commons Daemon with Spring Boot
-	</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <groupId>net.nicoll</groupId>
+    <artifactId>spring-boot-daemon</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Spring Boot Daemon</name>
+    <description>
+        Demonstrate how to use Apache Commons Daemon with Spring Boot
+    </description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.6</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.6</java.version>
+    </properties>
 
-	<modules>
-		<module>spring-boot-daemon-integration</module>
-		<module>spring-boot-daemon-sample</module>
-	</modules>
+    <modules>
+        <module>spring-boot-daemon-integration</module>
+        <module>spring-boot-daemon-sample</module>
+    </modules>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>net.nicoll</groupId>
-				<artifactId>spring-boot-daemon-integration</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-daemon</groupId>
-				<artifactId>commons-daemon</artifactId>
-				<version>1.0.15</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sun.winsw</groupId>
-				<artifactId>winsw</artifactId>
-				<version>1.18</version>
-				<classifier>bin</classifier>
-				<type>exe</type>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.nicoll</groupId>
+                <artifactId>spring-boot-daemon-integration</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-daemon</groupId>
+                <artifactId>commons-daemon</artifactId>
+                <version>1.0.15</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.winsw</groupId>
+                <artifactId>winsw</artifactId>
+                <version>1.18</version>
+                <classifier>bin</classifier>
+                <type>exe</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-	<repositories>
-		<repository>
-			<id>jenkins</id>
-			<name>Jenkins Repository</name>
-			<url>http://repo.jenkins-ci.org/releases</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>jenkins</id>
+            <name>Jenkins Repository</name>
+            <url>http://repo.jenkins-ci.org/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>

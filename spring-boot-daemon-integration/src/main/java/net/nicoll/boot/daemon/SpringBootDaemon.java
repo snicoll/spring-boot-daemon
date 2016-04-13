@@ -33,29 +33,29 @@ import org.springframework.util.ClassUtils;
  */
 public class SpringBootDaemon implements Daemon {
 
-	private Class<?> springBootApp;
+    private Class<?> springBootApp;
 
-	private ConfigurableApplicationContext content;
+    private ConfigurableApplicationContext content;
 
-	public void init(DaemonContext context) throws Exception {
-		System.out.println("Daemon initialized with arguments [" +
-				Arrays.toString(context.getArguments()) + "]");
-		this.springBootApp = ClassUtils.resolveClassName(context.getArguments()[0],
-				SpringBootDaemon.class.getClassLoader());
-	}
+    public void init(DaemonContext context) throws Exception {
+        System.out.println("Daemon initialized with arguments [" +
+                Arrays.toString(context.getArguments()) + "]");
+        this.springBootApp = ClassUtils.resolveClassName(context.getArguments()[0],
+                SpringBootDaemon.class.getClassLoader());
+    }
 
-	public void start() throws Exception {
-		System.out.println("Starting Spring Boot application [" + this.springBootApp.getName() + "]");
-		this.content = SpringApplication.run(springBootApp);
-	}
+    public void start() throws Exception {
+        System.out.println("Starting Spring Boot application [" + this.springBootApp.getName() + "]");
+        this.content = SpringApplication.run(springBootApp);
+    }
 
-	public void stop() throws Exception {
-		System.out.println("Stopping Spring Boot application [" + this.springBootApp.getName() + "]");
-		this.content.close();
-	}
+    public void stop() throws Exception {
+        System.out.println("Stopping Spring Boot application [" + this.springBootApp.getName() + "]");
+        this.content.close();
+    }
 
-	public void destroy() {
+    public void destroy() {
 
-	}
+    }
 
 }

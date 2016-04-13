@@ -7,8 +7,8 @@ package net.nicoll.boot.daemon;
  */
 public class StartSpringBootService {
 
-	public static void main(String[] args) throws Exception {
-		new SpringBootService().start(args);
-	}
+    public static void main(String[] args) throws Exception {
+        new SpringBootService().start(args);
+    }
 
 }

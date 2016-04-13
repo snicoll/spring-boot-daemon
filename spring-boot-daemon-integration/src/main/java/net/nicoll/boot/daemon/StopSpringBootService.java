@@ -7,8 +7,8 @@ package net.nicoll.boot.daemon;
  */
 public class StopSpringBootService {
 
-	public static void main(String[] args) throws Exception {
-		new SpringBootService().stop(args);
-	}
+    public static void main(String[] args) throws Exception {
+        new SpringBootService().stop(args);
+    }
 
 }

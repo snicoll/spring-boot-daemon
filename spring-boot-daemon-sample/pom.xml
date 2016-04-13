@@ -97,7 +97,6 @@
                 <version>2.5.5</version>
                 <configuration>
                     <descriptors>
-                        <descriptor>src/main/assembly/unix.xml</descriptor>
                         <descriptor>src/main/assembly/windows.xml</descriptor>
                     </descriptors>
                 </configuration>

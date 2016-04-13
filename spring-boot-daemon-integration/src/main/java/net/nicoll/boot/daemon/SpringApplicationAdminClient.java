@@ -17,6 +17,7 @@
 package net.nicoll.boot.daemon;
 
 import java.io.IOException;
+
 import javax.management.AttributeNotFoundException;
 import javax.management.InstanceNotFoundException;
 import javax.management.MBeanException;
@@ -39,28 +40,33 @@ import org.springframework.jmx.JmxException;
 class SpringApplicationAdminClient {
 
     // Note: see SpringApplicationAdminJmxAutoConfiguration
-    static final String DEFAULT_OBJECT_NAME = "org.springframework.boot:type=Admin,name=SpringApplication";
+    static final String DEFAULT_OBJECT_NAME
+            = "org.springframework.boot:type=Admin,name=SpringApplication";
 
     private final MBeanServerConnection connection;
 
     private final ObjectName objectName;
 
-    SpringApplicationAdminClient(MBeanServerConnection connection, String jmxName) {
+    SpringApplicationAdminClient(
+            final MBeanServerConnection connection, final String jmxName) {
         this.connection = connection;
         this.objectName = toObjectName(jmxName);
     }
 
     /**
-     * Check if the spring application managed by this instance is ready. Returns
-     * {@code false} if the mbean is not yet deployed so this method should be repeatedly
-     * called until a timeout is reached.
+     * Check if the spring application managed by this instance is ready.
+     * Returns {@code false} if the mbean is not yet deployed so this method
+     * should be repeatedly called until a timeout is reached.
      *
      * @return {@code true} if the application is ready to service requests
-     * @throws org.springframework.jmx.JmxException if the JMX service could not be contacted
+     *
+     * @throws org.springframework.jmx.JmxException if the JMX service could not
+     *                                              be contacted
      */
     public boolean isReady() {
         try {
-            return (Boolean) this.connection.getAttribute(this.objectName, "Ready");
+            return (Boolean) this.connection.getAttribute(this.objectName,
+                    "Ready");
         } catch (InstanceNotFoundException ex) {
             return false; // Instance not available yet
         } catch (AttributeNotFoundException ex) {
@@ -69,9 +75,7 @@ class SpringApplicationAdminClient {
         } catch (ReflectionException ex) {
             throw new JmxException("Failed to retrieve Ready attribute",
                     ex.getCause());
-        } catch (MBeanException ex) {
-            throw new JmxException(ex.getMessage(), ex);
-        } catch (IOException ex) {
+        } catch (MBeanException | IOException ex) {
             throw new JmxException(ex.getMessage(), ex);
         }
     }
@@ -79,12 +83,12 @@ class SpringApplicationAdminClient {
     /**
      * Stop the application managed by this instance.
      *
-     * @throws JmxException              if the JMX service could not be contacted
+     * @throws JmxException              if the JMX service could not be
+     *                                   contacted
      * @throws IOException               if an I/O error occurs
      * @throws InstanceNotFoundException if the lifecycle mbean cannot be found
      */
-    public void stop() throws IOException,
-            InstanceNotFoundException {
+    void stop() throws IOException, InstanceNotFoundException {
         try {
             this.connection.invoke(this.objectName, "shutdown", null, null);
         } catch (ReflectionException ex) {
@@ -94,24 +98,28 @@ class SpringApplicationAdminClient {
         }
     }
 
-    private ObjectName toObjectName(String name) {
+    private ObjectName toObjectName(final String name) {
         try {
             return new ObjectName(name);
         } catch (MalformedObjectNameException ex) {
-            throw new IllegalArgumentException("Invalid jmx name '" + name + "'");
+            throw new IllegalArgumentException(
+                    "Invalid jmx name '" + name + "'");
         }
     }
 
     /**
-     * Create a connector for an {@link javax.management.MBeanServer} exposed on the
-     * current machine and the current port. Security should be disabled.
+     * Create a connector for an {@link javax.management.MBeanServer} exposed on
+     * the current machine and the current port. Security should be disabled.
      *
      * @param port the port on which the mbean server is exposed
+     *
      * @return a connection
+     *
      * @throws IOException if the connection to that server failed
      */
-    public static JMXConnector connect(int port) throws IOException {
-        String url = "service:jmx:rmi:///jndi/rmi://127.0.0.1:" + port + "/jmxrmi";
+    static JMXConnector connect(final int port) throws IOException {
+        String url = "service:jmx:rmi:///jndi/rmi://127.0.0.1:" + port
+                + "/jmxrmi";
         JMXServiceURL serviceUrl = new JMXServiceURL(url);
         return JMXConnectorFactory.connect(serviceUrl, null);
     }

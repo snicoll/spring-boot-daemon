@@ -5,9 +5,17 @@ package net.nicoll.boot.daemon;
  *
  * @author Stephane Nicoll
  */
+@SuppressWarnings("hideutilityclassconstructor")
 public class StartSpringBootService {
 
-    public static void main(String[] args) throws Exception {
+    /**
+     * Application Main method.
+     *
+     * @param args command line arguments to pass to Spring
+     *
+     * @throws Exception if there is an error starting the server
+     */
+    public static void main(final String[] args) throws Exception {
         new SpringBootService().start(args);
     }
 

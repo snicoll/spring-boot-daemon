@@ -21,20 +21,32 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Sample Application Start Class.
+ */
 @SpringBootApplication
+@SuppressWarnings("hideutilityclassconstructor")
 public class SampleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SampleApplication.class, args);
-	}
+    /**
+     * Application Main method.
+     *
+     * @param args command line arguments to pass to Spring
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(SampleApplication.class, args);
+    }
 
-	@RestController
-	static class HomeController {
+    /**
+     * Hello, World! controller.
+     */
+    @RestController
+    static class HomeController {
 
-		@RequestMapping("/")
-		public String home() {
-			return "Hello World";
-		}
-	}
+        @RequestMapping("/")
+        public String home() {
+            return "Hello World";
+        }
+    }
 
 }

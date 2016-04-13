@@ -20,6 +20,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.6</java.version>
+        <commons-daemon.version>1.0.15</commons-daemon.version>
+        <winsw.version>1.18</winsw.version>
     </properties>
 
     <modules>
@@ -32,17 +34,17 @@
             <dependency>
                 <groupId>net.kemitix</groupId>
                 <artifactId>spring-boot-daemon-integration</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-daemon</groupId>
                 <artifactId>commons-daemon</artifactId>
-                <version>1.0.15</version>
+                <version>${commons-daemon.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.winsw</groupId>
                 <artifactId>winsw</artifactId>
-                <version>1.18</version>
+                <version>${winsw.version}</version>
                 <classifier>bin</classifier>
                 <type>exe</type>
             </dependency>

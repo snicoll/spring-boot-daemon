@@ -5,7 +5,7 @@
     <parent>
         <groupId>net.kemitix</groupId>
         <artifactId>spring-boot-daemon</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>spring-boot-daemon-sample</artifactId>
     <packaging>jar</packaging>

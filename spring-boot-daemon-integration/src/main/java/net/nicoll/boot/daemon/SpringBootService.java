@@ -49,8 +49,8 @@ class SpringBootService {
         System.out.println("Stopping Spring Boot application...");
         int jmxPort = Integer.parseInt(args[0]);
         String jmxName = SpringApplicationAdminClient.DEFAULT_OBJECT_NAME;
-        JMXConnector connector = SpringApplicationAdminClient.connect(jmxPort);
-        try {
+        try (JMXConnector connector = SpringApplicationAdminClient.connect(
+                jmxPort)) {
             MBeanServerConnection connection
                     = connector.getMBeanServerConnection();
             try {
@@ -59,11 +59,8 @@ class SpringBootService {
                 throw new IllegalStateException(
                         "Spring application lifecycle JMX bean not "
                                 + "found, could not stop application "
-                                + "gracefully",
-                        ex);
+                                + "gracefully", ex);
             }
-        } finally {
-            connector.close();
         }
     }
 

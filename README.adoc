@@ -48,13 +48,13 @@ C:\dir> run.bat
 C:\dir> status.bat
 ----
 
+Note: A result of `NonExistent` means the service is not installed.
+
 .Uninstall Service
 ----
 C:\dir> shutdown.bat
 C:\dir> uninstall.bat
 ----
-
-Note: A result of `NonExistent` means the service is not installed.
 
 ## Logs
 

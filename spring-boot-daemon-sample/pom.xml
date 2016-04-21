@@ -13,14 +13,15 @@
 
     <properties>
         <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
+        <start-class>net.nicoll.SampleApplication</start-class>
         <dist.dir>${project.build.directory}/dist</dist.dir>
-        <dist.project.id>${project.artifactId}</dist.project.id>
-        <dist.project.version>${project.version}</dist.project.version>
-        <dist.project.name>Sample Spring Boot App</dist.project.name>
-        <dist.project.description>
+        <dist.service.name>${project.artifactId}</dist.service.name>
+        <dist.service.display.name>Sample Spring Boot App</dist.service.display.name>
+        <dist.service.description>
             Demonstrate how to integrate a Spring Boot app as a Windows Service
-        </dist.project.description>
-        <dist.start.class>net.nicoll.SampleApplication</dist.start.class>
+        </dist.service.description>
+        <dist.jar>lib\${project.artifactId}-${project.version}.jar</dist.jar>
+        <dist.start.class>${start-class}</dist.start.class>
         <dist.jmx.port>50201</dist.jmx.port>
     </properties>
 

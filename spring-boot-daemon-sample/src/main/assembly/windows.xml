@@ -32,21 +32,21 @@
 	</fileSets>
 
 	<files>
-		<file>
-			<source>${dist.dir}/service.exe</source>
-			<outputDirectory/>
-			<destName>${dist.project.id}.exe</destName>
-		</file>
-		<file>
-			<source>${dist.dir}/service.xml</source>
-			<outputDirectory/>
-			<destName>${dist.project.id}.xml</destName>
-		</file>
-		<file>
-			<source>${dist.dir}/service.exe.config</source>
-			<outputDirectory/>
-			<destName>${dist.project.id}.exe.config</destName>
-		</file>
+        <file>
+            <source>${dist.dir}/service.exe</source>
+            <outputDirectory/>
+            <destName>${dist.service.name}.exe</destName>
+        </file>
+        <file>
+            <source>${dist.dir}/service.xml</source>
+            <outputDirectory/>
+            <destName>${dist.service.name}.xml</destName>
+        </file>
+        <file>
+            <source>${dist.dir}/service.exe.config</source>
+            <outputDirectory/>
+            <destName>${dist.service.name}.exe.config</destName>
+        </file>
 
 	</files>
 </assembly>

@@ -16,28 +16,45 @@ The `windows` distribution uses https://github.com/kohsuke/winsw[`winsw`].
 
 WARNING: You need to install the `.NET` framework on the target machine first.
 
-## Sample applications
+## Installing and Running Services
 
-To install the sample application as a service, extract the distribution somewhere and open a shell with
-administrative rights in that directory. Then invoke the following command
+To install the application as a service, extract the distribution zip somewhere and open a shell with
+administrative rights in that directory.
 
-[source,bash]
+.Install Service
 ----
-$ spring-boot-daemon-sample.exe install
+C:\dir> install.bat
 ----
-
-[NOTE]
-====
-`spring-boot-daemon-sample` is the identifier of the service. You can control that via Maven properties
-in the `spring-boot-daemon-sample` project.
-====
 
 Once the service has been installed, you can start it the usual way, that is:
 
-[source,bash]
+.Start Service
 ----
-$ net start spring-boot-daemon-sample
+C:\dir> startup.bat
 ----
+
+.Stop Service
+----
+C:\dir> shutdown.bat
+----
+
+.Run Application from Command line
+----
+C:\dir> run.bat
+----
+
+.View Service Status
+----
+C:\dir> status.bat
+----
+
+.Uninstall Service
+----
+C:\dir> shutdown.bat
+C:\dir> uninstall.bat
+----
+
+Note: A result of `NonExistent` means the service is not installed.
 
 The logs are available in the `logs` directory of the distribution.
 

@@ -47,6 +47,34 @@
             <outputDirectory/>
             <destName>${dist.service.name}.exe.config</destName>
         </file>
+        <file>
+            <source>${dist.dir}/run.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/stop.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/status.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/install.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/startup.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/shutdown.bat</source>
+            <outputDirectory/>
+        </file>
+        <file>
+            <source>${dist.dir}/uninstall.bat</source>
+            <outputDirectory/>
+        </file>
 
 	</files>
 </assembly>

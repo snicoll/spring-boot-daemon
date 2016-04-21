@@ -56,9 +56,13 @@ C:\dir> uninstall.bat
 
 Note: A result of `NonExistent` means the service is not installed.
 
+## Logs
+
 The logs are available in the `logs` directory of the distribution.
 
-## Usage
+## Usage in your application
+
+Or, **How to convert your application into a Windows Service**.
 
 To enable running your own Spring Boot applications as a Windows Service:
 
@@ -66,8 +70,8 @@ To enable running your own Spring Boot applications as a Windows Service:
 2. copy, unaltered, the `assembly` and `dist` directories from `spring-boot-daemon-sample/src/main` into your own application
 sources
 3. add the `project/build/plugins` section from `spring-boot-daemon-sample/pom.xml` to your own `pom.xml`, including the
-`spring-boot-maven-plugin` (needs layout=ZIP)
-4. add the following properties to your `pom.xml`, updating the values to suite
+`spring-boot-maven-plugin` (needs layout=ZIP), which should be first among these plugins
+4. add the following properties to your `pom.xml`, updating the values to suit:
 
 [source,xml]
 ----

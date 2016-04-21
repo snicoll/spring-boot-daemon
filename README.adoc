@@ -16,32 +16,53 @@ The `windows` distribution uses https://github.com/kohsuke/winsw[`winsw`].
 
 WARNING: You need to install the `.NET` framework on the target machine first.
 
-## Sample applications
+## Installing and Running Services
 
-To install the sample application as a service, extract the distribution somewhere and open a shell with
-administrative rights in that directory. Then invoke the following command
+To install the application as a service, extract the distribution zip somewhere and open a shell with
+administrative rights in that directory.
 
-[source,bash]
+.Install Service
 ----
-$ spring-boot-daemon-sample.exe install
+C:\dir> install.bat
 ----
-
-[NOTE]
-====
-`spring-boot-daemon-sample` is the identifier of the service. You can control that via Maven properties
-in the `spring-boot-daemon-sample` project.
-====
 
 Once the service has been installed, you can start it the usual way, that is:
 
-[source,bash]
+.Start Service
 ----
-$ net start spring-boot-daemon-sample
+C:\dir> startup.bat
 ----
+
+.Stop Service
+----
+C:\dir> shutdown.bat
+----
+
+.Run Application from Command line
+----
+C:\dir> run.bat
+----
+
+.View Service Status
+----
+C:\dir> status.bat
+----
+
+.Uninstall Service
+----
+C:\dir> shutdown.bat
+C:\dir> uninstall.bat
+----
+
+Note: A result of `NonExistent` means the service is not installed.
+
+## Logs
 
 The logs are available in the `logs` directory of the distribution.
 
-## Usage
+## Usage in your application
+
+Or, **How to convert your application into a Windows Service**.
 
 To enable running your own Spring Boot applications as a Windows Service:
 
@@ -49,21 +70,31 @@ To enable running your own Spring Boot applications as a Windows Service:
 2. copy, unaltered, the `assembly` and `dist` directories from `spring-boot-daemon-sample/src/main` into your own application
 sources
 3. add the `project/build/plugins` section from `spring-boot-daemon-sample/pom.xml` to your own `pom.xml`, including the
-`spring-boot-maven-plugin` (needs layout=ZIP)
-4. add the following properties to your `pom.xml`, updating the values to suite
+`spring-boot-maven-plugin` (needs layout=ZIP), which should be first among these plugins
+4. add the following properties to your `pom.xml`, updating the values to suit:
 
 [source,xml]
 ----
     <properties>
         <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
+        <start-class>net.nicoll.SampleApplication</start-class> <!--1-->
+        <winsw.version>1.18</winsw.version>
+        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+        <maven-resources-plugin.verion>2.7</maven-resources-plugin.verion>
+        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <dist.dir>${project.build.directory}/dist</dist.dir>
-        <dist.project.id>${project.artifactId}</dist.project.id>
-        <dist.project.version>${project.version}</dist.project.version>
-        <dist.project.name>Sample Spring Boot App</dist.project.name>
-        <dist.project.description>
-            Demonstrate how to integrate a Spring Boot app as a Windows Service
-        </dist.project.description>
-        <dist.start.class>net.nicoll.SampleApplication</dist.start.class>
-        <dist.jmx.port>50201</dist.jmx.port>
+        <dist.service.name>${project.artifactId}</dist.service.name>
+        <dist.service.display.name>Sample Spring Boot App</dist.service.display.name> <!--2-->
+        <dist.service.description>
+            Demonstrate how to integrate a Spring Boot app as a Windows Service <!--3-->
+        </dist.service.description>
+        <dist.jar>lib\${project.artifactId}-${project.version}.jar</dist.jar>
+        <dist.start.class>${start-class}</dist.start.class>
+        <dist.jmx.port>50201</dist.jmx.port> <!--4-->
     </properties>
 ----
+<1> Your Spring Boot application class
+<2> The name that shows in the Windows Services Control Panel
+<3> The longer description that shows in the Windows Services Control Panel
+<4> The JMX Port on the machine that will be assigned to the server, must not conflict with another usage and is
+required to be able to shutdown the service

@@ -1,24 +1,24 @@
 <service>
-	<id>@dist.project.id@</id>
-	<name>@dist.project.name@</name>
-	<description>@dist.project.description@</description>
-	<workingdirectory>%BASE%\</workingdirectory>
-	<logpath>%BASE%\logs</logpath>
-	<logmode>rotate</logmode>
+    <id>@dist.service.name@</id>
+    <name>@dist.service.display.name@</name>
+    <description>@dist.service.description@</description>
+    <workingdirectory>%BASE%\</workingdirectory>
+    <logpath>%BASE%\logs</logpath>
+    <logmode>rotate</logmode>
 
-	<executable>java</executable>
-	<startargument>-Dspring.application.admin.enabled=true</startargument>
-	<startargument>-Dcom.sun.management.jmxremote.port=@dist.jmx.port@</startargument>
-	<startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
-	<startargument>-Dcom.sun.management.jmxremote.ssl=false</startargument>
-	<startargument>-jar</startargument>
-	<startargument>-Dloader.main=net.nicoll.boot.daemon.StartSpringBootService</startargument>
-	<startargument>lib\@dist.project.id@-@dist.project.version@.jar</startargument>
-	<startargument>@dist.start.class@</startargument>
+    <executable>java</executable>
+    <startargument>-Dspring.application.admin.enabled=true</startargument>
+    <startargument>-Dcom.sun.management.jmxremote.port=@dist.jmx.port@</startargument>
+    <startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
+    <startargument>-Dcom.sun.management.jmxremote.ssl=false</startargument>
+    <startargument>-jar</startargument>
+    <startargument>-Dloader.main=net.nicoll.boot.daemon.StartSpringBootService</startargument>
+    <startargument>@dist.jar@</startargument>
+    <startargument>@dist.start.class@</startargument>
 
-	<stopexecutable>java</stopexecutable>
-	<stopargument>-jar</stopargument>
-	<stopargument>-Dloader.main=net.nicoll.boot.daemon.StopSpringBootService</stopargument>
-	<stopargument>lib\@dist.project.id@-@dist.project.version@.jar</stopargument>
-	<stopargument>@dist.jmx.port@</stopargument>
+    <stopexecutable>java</stopexecutable>
+    <stopargument>-jar</stopargument>
+    <stopargument>-Dloader.main=net.nicoll.boot.daemon.StopSpringBootService</stopargument>
+    <stopargument>@dist.jar@</stopargument>
+    <stopargument>@dist.jmx.port@</stopargument>
 </service>

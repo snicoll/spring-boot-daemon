@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+1.1.0
+------
+
+* Distribute the executable fat-jar (smaller zip files)
+* Include install/uninstall/startup/shutdown helper batch commands
+* Fix sample application to be executible
+
 1.0.1
 ------
 

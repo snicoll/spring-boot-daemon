@@ -71,7 +71,7 @@ To enable running your own Spring Boot applications as a Windows Service:
 sources
 3. add the `project/build/plugins` section from `spring-boot-daemon-sample/pom.xml` to your own `pom.xml`, including the
 `spring-boot-maven-plugin` (needs layout=ZIP), which should be first among these plugins
-4. add the following properties to your `pom.xml`, updating the values to suit:
+4. add the following properties and repositories to your `pom.xml`, updating the values to suit:
 
 [source,xml]
 ----
@@ -92,6 +92,16 @@ sources
         <dist.start.class>${start-class}</dist.start.class>
         <dist.jmx.port>50201</dist.jmx.port> <!--4-->
     </properties>
+    <repositories>
+        <repository><!-- repo for downloading winsw.exe from -->
+            <id>jenkins</id>
+            <name>Jenkins Repository</name>
+            <url>http://repo.jenkins-ci.org/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 ----
 <1> Your Spring Boot application class
 <2> The name that shows in the Windows Services Control Panel

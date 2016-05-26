@@ -16,7 +16,7 @@
         <start-class>net.nicoll.SampleApplication</start-class>
         <winsw.version>1.18</winsw.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
-        <maven-resources-plugin.verion>2.7</maven-resources-plugin.verion>
+        <maven-resources-plugin.verion>3.0.0</maven-resources-plugin.verion>
         <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <dist.dir>${project.build.directory}/dist</dist.dir>
         <dist.service.name>${project.artifactId}</dist.service.name>

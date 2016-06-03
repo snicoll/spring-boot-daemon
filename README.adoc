@@ -1,3 +1,6 @@
+image:https://travis-ci.org/kemitix/spring-boot-daemon.svg?branch=develop["Build Status", link="https://travis-ci.org/kemitix/spring-boot-daemon"]
+image:https://coveralls.io/repos/github/kemitix/spring-boot-daemon/badge.svg?branch=develop["Coverage Status", link="https://coveralls.io/github/kemitix/spring-boot-daemon?branch=develop"]
+
 # Spring Boot Daemon
 
 This project enables a Spring Boot application to be managed as a service on Windows.
@@ -76,7 +79,7 @@ sources
 [source,xml]
 ----
     <properties>
-        <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>1.3.5.RELEASE</spring-boot.version>
         <start-class>net.nicoll.SampleApplication</start-class> <!--1-->
         <winsw.version>1.18</winsw.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>

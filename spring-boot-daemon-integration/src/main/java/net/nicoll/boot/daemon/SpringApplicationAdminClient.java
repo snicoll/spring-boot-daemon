@@ -68,7 +68,8 @@ class SpringApplicationAdminClient {
             return (Boolean) this.connection.getAttribute(this.objectName,
                     "Ready");
         } catch (InstanceNotFoundException ex) {
-            return false; // Instance not available yet
+            // Instance not available yet
+            return false;
         } catch (AttributeNotFoundException ex) {
             throw new IllegalStateException(
                     "Unexpected: attribute 'Ready' not available", ex);

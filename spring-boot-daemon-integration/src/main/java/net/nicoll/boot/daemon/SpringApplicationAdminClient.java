@@ -74,10 +74,9 @@ class SpringApplicationAdminClient {
             throw new IllegalStateException(
                     "Unexpected: attribute 'Ready' not available", ex);
         } catch (ReflectionException ex) {
-            throw new JmxException("Failed to retrieve Ready attribute",
-                    ex.getCause());
+            throw new JmxException("Failed to retrieve Ready attribute", ex);
         } catch (MBeanException | IOException ex) {
-            throw new JmxException(ex.getMessage(), ex);
+            throw new JmxException("MBean/IO error", ex);
         }
     }
 
@@ -93,7 +92,7 @@ class SpringApplicationAdminClient {
         try {
             this.connection.invoke(this.objectName, "shutdown", null, null);
         } catch (ReflectionException ex) {
-            throw new JmxException("Shutdown failed", ex.getCause());
+            throw new JmxException("Shutdown failed", ex);
         } catch (MBeanException ex) {
             throw new JmxException("Could not invoke shutdown operation", ex);
         }
@@ -104,7 +103,7 @@ class SpringApplicationAdminClient {
             return new ObjectName(name);
         } catch (MalformedObjectNameException ex) {
             throw new IllegalArgumentException(
-                    "Invalid jmx name '" + name + "'");
+                    "Invalid jmx name '" + name + "'", ex);
         }
     }
 

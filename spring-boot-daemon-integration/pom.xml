@@ -11,6 +11,20 @@
     <packaging>jar</packaging>
     <name>Spring Boot Daemon :: Integration</name>
 
+    <properties>
+        <coveralls-maven-plugin.version>4.2.0</coveralls-maven-plugin.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>${coveralls-maven-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>commons-daemon</groupId>

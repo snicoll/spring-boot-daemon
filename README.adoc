@@ -1,3 +1,6 @@
+image:https://travis-ci.org/kemitix/spring-boot-daemon.svg?branch=develop["Build Status", link="https://travis-ci.org/kemitix/spring-boot-daemon"]
+image:https://coveralls.io/repos/github/kemitix/spring-boot-daemon/badge.svg?branch=develop["Coverage Status", link="https://coveralls.io/github/kemitix/spring-boot-daemon?branch=develop"]
+
 # Spring Boot Daemon
 
 This project enables a Spring Boot application to be managed as a service on Windows.

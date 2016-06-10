@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-daemon (1) (net.nicoll).iml" filepath="$PROJECT_DIR$/spring-boot-daemon (1) (net.nicoll).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-daemon-integration/spring-boot-daemon (2) (net.kemitix).iml" filepath="$PROJECT_DIR$/spring-boot-daemon-integration/spring-boot-daemon (2) (net.kemitix).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-daemon-sample/spring-boot-daemon-sample.iml" filepath="$PROJECT_DIR$/spring-boot-daemon-sample/spring-boot-daemon-sample.iml" />
+    </modules>
+  </component>
+</project>

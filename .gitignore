@@ -1,5 +1,48 @@
-.idea
-*.iml
-*.ipr
-*.iws
-target
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# maven build outputs
+target/
+
+# netbeans legacy
+nbproject/
+nbactions.xml
+
+# eclipse legacy
+.project
+
+# intellij
+.idea/libraries/
+.idea/workspace.xml
+.idea/uiDesigner.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/checkstyle.xml
+.idea/artifacts/
+.idea/dataSources*
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/dynamic.xml
+.idea/sqlDataSources.xml
+.idea/gradle.xml
+.idea/mongoSettings.xml
+
+# Spring
+spring.log
+logs/
+/application.properties
+/bootstrap.properties
+
+# Composer-style
+vendor
+
+# Git and temp files
+*.orig
+*.patch
+*~

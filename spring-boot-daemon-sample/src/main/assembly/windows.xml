@@ -13,7 +13,7 @@
 			<useProjectArtifact>true</useProjectArtifact>
 			<outputDirectory>lib</outputDirectory>
 			<excludes>
-                		<exclude>org.springframework.boot:spring-boot-devtools</exclude>
+				<exclude>org.springframework.boot:spring-boot-devtools</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>

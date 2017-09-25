@@ -7,6 +7,7 @@
 	<logmode>rotate</logmode>
 
 	<executable>java</executable>
+	<startargument>-Dspring.profiles.active=dev</startargument>
 	<startargument>-Dspring.application.admin.enabled=true</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.port=@dist.jmx.port@</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>

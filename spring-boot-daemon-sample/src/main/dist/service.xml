@@ -7,10 +7,11 @@
 	<logmode>rotate</logmode>
 
 	<executable>java</executable>
+	<startargument>-Dspring.profiles.active=dev</startargument>
 	<startargument>-Dspring.application.admin.enabled=true</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.port=@dist.jmx.port@</startargument>
 	<startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
-	<startargument>-Dcom.sun.management.jmxremote.ssl=false </startargument>
+	<startargument>-Dcom.sun.management.jmxremote.ssl=false</startargument>
 	<startargument>-cp</startargument>
 	<startargument>lib/*</startargument>
 	<startargument>net.nicoll.boot.daemon.StartSpringBootService</startargument>

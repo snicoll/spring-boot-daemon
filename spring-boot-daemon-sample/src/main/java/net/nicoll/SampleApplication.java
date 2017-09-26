@@ -16,25 +16,37 @@
 
 package net.nicoll;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@EnableScheduling
 @SpringBootApplication
 public class SampleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SampleApplication.class, args);
-	}
+    @Value("${profile.name}")
+    private String profile;
 
-	@RestController
-	static class HomeController {
+    public static void main(String[] args) {
+        SpringApplication.run(SampleApplication.class, args);
+    }
 
-		@RequestMapping("/")
-		public String home() {
-			return "Hello World";
-		}
-	}
+    @Scheduled(fixedDelayString = "3000")
+    public void printScheduling() throws InterruptedException {
+        System.out.println("---------Hello World by Scheduling ---------- profile:" + profile);
+    }
+
+    @RestController
+    static class HomeController {
+
+        @RequestMapping("/")
+        public String home() {
+            return "Hello World";
+        }
+    }
 
 }

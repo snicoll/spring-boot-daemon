@@ -3,3 +3,4 @@
 *.ipr
 *.iws
 target
+!.mvn/wrapper/maven-wrapper.jar

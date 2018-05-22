@@ -4,7 +4,13 @@ This project demonstrates how a Spring Boot application can be managed as a serv
 
 ## Building
 
-You need Maven to build the project and a simple `mvn package` at the root will do.
+You need Java 1.8 and a bash-like shell. To build the project, invoke this command at
+the root of the project
+
+[source,bash]
+----
+$ ./mvnw clean install
+----
 
 ## Unix
 
